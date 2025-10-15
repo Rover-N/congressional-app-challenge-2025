@@ -10,6 +10,7 @@ config_version=5
 
 [application]
 
-config/name="congressional-app-challenge-2025"
+config/name="Congressional App Challenge 2025 Super"
+run/main_scene="uid://dkn2br1guakd7"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://assets/icon.svg"

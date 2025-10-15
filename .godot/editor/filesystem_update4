@@ -1,0 +1,4 @@
+res://scenes/main.tscn
+res://scenes/main.gd
+res://menu_button.gd
+res://scenes/menu_button.tscn
