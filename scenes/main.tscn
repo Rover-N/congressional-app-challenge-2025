@@ -1,0 +1,89 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkn2br1guakd7"]
+
+[ext_resource type="Script" uid="uid://cucrpik5r1bd7" path="res://scenes/main.gd" id="1_o5qli"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_o5qli"]
+size = Vector2(50, 50)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o5qli")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.250124, 0.250124, 0.250124, 1)
+
+[node name="TextEdit" type="TextEdit" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -351.0
+offset_bottom = 124.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 50
+placeholder_text = "Notes"
+
+[node name="Line2D" type="Line2D" parent="ColorRect"]
+position = Vector2(0, -58.297)
+scale = Vector2(1, 1.15842)
+points = PackedVector2Array(51, 75, 51, 277.542, 51, 560)
+
+[node name="EventList" type="VBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.057
+anchor_top = 0.05
+anchor_right = 0.16
+anchor_bottom = 0.9
+grow_vertical = 2
+
+[node name="NewEventButton" type="Button" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -351.0
+offset_top = -124.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Add Event"
+icon = SubResource("PlaceholderTexture2D_o5qli")
+
+[node name="NewEventMenu" type="ColorRect" parent="ColorRect/NewEventButton"]
+layout_mode = 0
+offset_left = -551.0
+offset_top = -487.0
+offset_right = -52.0
+offset_bottom = -9.0
+
+[node name="NewEventTitle" type="TextEdit" parent="ColorRect/NewEventButton/NewEventMenu"]
+layout_mode = 1
+offset_right = 500.0
+offset_bottom = 124.0
+theme_override_font_sizes/font_size = 50
+placeholder_text = "Title Placeholder"
+
+[node name="SaveChanges" type="Button" parent="ColorRect/NewEventButton/NewEventMenu"]
+layout_mode = 0
+offset_left = 197.0
+offset_top = 390.0
+offset_right = 303.0
+offset_bottom = 447.0
+text = "SAVE"
+
+[connection signal="pressed" from="ColorRect/NewEventButton" to="." method="_on_new_event_button_pressed"]
+[connection signal="pressed" from="ColorRect/NewEventButton/NewEventMenu/SaveChanges" to="." method="_on_save_changes_pressed"]
