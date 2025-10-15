@@ -1,4 +1,4 @@
 extends Button
 
-func _button_down():
-	$EventMenuShow.visible = !$EventMenuShow.visible
+func _pressed():
+	$Screen/EventMenuShow.visible = !$Screen/EventMenuShow.visible

@@ -29,7 +29,7 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -351.0
-offset_bottom = 124.0
+offset_bottom = 511.0
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 50
 placeholder_text = "Notes"
@@ -64,6 +64,7 @@ text = "Add Event"
 icon = SubResource("PlaceholderTexture2D_o5qli")
 
 [node name="NewEventMenu" type="ColorRect" parent="ColorRect/NewEventButton"]
+visible = false
 layout_mode = 0
 offset_left = -551.0
 offset_top = -487.0

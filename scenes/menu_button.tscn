@@ -13,15 +13,16 @@ font_color = Color(0, 0, 0, 1)
 icon = SubResource("PlaceholderTexture2D_sd4kj")
 script = ExtResource("1_xsssc")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Screen" type="CanvasLayer" parent="."]
 
-[node name="EventMenuShow" type="ColorRect" parent="CanvasLayer"]
+[node name="EventMenuShow" type="ColorRect" parent="Screen"]
+visible = false
 offset_left = 306.0
 offset_top = 37.0
 offset_right = 824.0
 offset_bottom = 555.0
 
-[node name="Title" type="Label" parent="CanvasLayer/EventMenuShow"]
+[node name="Title" type="Label" parent="Screen/EventMenuShow"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
