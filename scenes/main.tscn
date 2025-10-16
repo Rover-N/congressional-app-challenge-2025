@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dkn2br1guakd7"]
+[gd_scene load_steps=4 format=3 uid="uid://dkn2br1guakd7"]
 
 [ext_resource type="Script" uid="uid://cucrpik5r1bd7" path="res://scripts/main.gd" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://cwuv53qtyh2x5" path="res://scenes/menu_button.tscn" id="2_0wfyh"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_o5qli"]
 size = Vector2(50, 50)
@@ -46,7 +47,22 @@ anchor_left = 0.057
 anchor_top = 0.05
 anchor_right = 0.16
 anchor_bottom = 0.9
+offset_left = 0.335999
+offset_top = -0.400002
+offset_right = 432.68
+offset_bottom = -0.200012
 grow_vertical = 2
+
+[node name="MenuButton" parent="ColorRect/EventList" instance=ExtResource("2_0wfyh")]
+layout_mode = 2
+
+[node name="MenuButton2" parent="ColorRect/EventList" instance=ExtResource("2_0wfyh")]
+visible = false
+layout_mode = 2
+
+[node name="MenuButton3" parent="ColorRect/EventList" instance=ExtResource("2_0wfyh")]
+visible = false
+layout_mode = 2
 
 [node name="NewEventButton" type="Button" parent="ColorRect"]
 layout_mode = 1
@@ -65,18 +81,26 @@ icon = SubResource("PlaceholderTexture2D_o5qli")
 
 [node name="NewEventMenu" type="ColorRect" parent="ColorRect/NewEventButton"]
 visible = false
-layout_mode = 0
-offset_left = -551.0
-offset_top = -487.0
-offset_right = -52.0
-offset_bottom = -9.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -2.282
+anchor_top = -4.218
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 42.982
+offset_top = 27.032
+offset_right = -394.0
+offset_bottom = -57.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="NewEventTitle" type="TextEdit" parent="ColorRect/NewEventButton/NewEventMenu"]
 layout_mode = 1
 offset_right = 500.0
 offset_bottom = 124.0
 theme_override_font_sizes/font_size = 50
-placeholder_text = "Title Placeholder"
+placeholder_text = "Title"
+wrap_mode = 1
 
 [node name="SaveChanges" type="Button" parent="ColorRect/NewEventButton/NewEventMenu"]
 layout_mode = 0

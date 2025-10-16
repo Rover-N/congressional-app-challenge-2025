@@ -15,7 +15,7 @@ func _on_save_changes_pressed() -> void:
 	var eventData = {
 		"title" : "Placeholder Title",
 		"description" : "Placeholder Description",
-		"time" : Time.get_datetime_string_from_system() #YYYY-MM-DDTHH:MM:SS We are using system time as a placeholder
+		"time" : null
 	}
 	
 	#We should use checks to make sure the new data is valid, here I make sure there is something typed
@@ -26,4 +26,8 @@ func _on_save_changes_pressed() -> void:
 	events.append(eventData)
 	
 	var event = eventMenuButton.instantiate()
+	
+	#Start to update UI
+	event.get_node("Screen/EventMenuShow/Title").text = eventData["title"]
+	
 	$ColorRect/EventList.add_child(event)
