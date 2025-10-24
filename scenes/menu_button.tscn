@@ -1,16 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://cwuv53qtyh2x5"]
+[gd_scene load_steps=7 format=3 uid="uid://cwuv53qtyh2x5"]
 
+[ext_resource type="Shader" uid="uid://k3ihvv44dyyb" path="res://scenes/Circle.gdshader" id="1_sd4kj"]
 [ext_resource type="Script" uid="uid://bl5tdrdd2vhx2" path="res://scripts/menu_button.gd" id="1_xsssc"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_sd4kj"]
-size = Vector2(100, 100)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fpmxc"]
+shader = ExtResource("1_sd4kj")
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/inner_radius = 0.3
+shader_parameter/outer_radius = 0.45
+shader_parameter/feather = 0.01
+
+[sub_resource type="Gradient" id="Gradient_hunp8"]
+offsets = PackedFloat32Array(0, 0.53333336, 0.74, 1)
+colors = PackedColorArray(0, 0, 0.84313726, 1, 0.01568323, 1.037699e-06, 0.5266541, 1, 0.026524857, 1.7550478e-06, 0.3078732, 1, 0.030551746, 2.0214916e-06, 0.22661173, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3wbiy"]
+gradient = SubResource("Gradient_hunp8")
+fill_to = Vector2(1, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_fpmxc"]
 font_size = 71
 font_color = Color(0, 0, 0, 1)
 
 [node name="MenuButton" type="Button"]
-icon = SubResource("PlaceholderTexture2D_sd4kj")
+material = SubResource("ShaderMaterial_fpmxc")
+icon = SubResource("GradientTexture2D_3wbiy")
 script = ExtResource("1_xsssc")
 
 [node name="Screen" type="CanvasLayer" parent="."]
