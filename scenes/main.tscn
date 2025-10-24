@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dkn2br1guakd7"]
+[gd_scene load_steps=3 format=3 uid="uid://dkn2br1guakd7"]
 
 [ext_resource type="Script" uid="uid://cucrpik5r1bd7" path="res://scripts/main.gd" id="1_o5qli"]
-[ext_resource type="PackedScene" uid="uid://cwuv53qtyh2x5" path="res://scenes/menu_button.tscn" id="2_0wfyh"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_o5qli"]
 size = Vector2(50, 50)
@@ -52,17 +51,6 @@ offset_top = -0.400002
 offset_right = 432.68
 offset_bottom = -0.200012
 grow_vertical = 2
-
-[node name="MenuButton" parent="ColorRect/EventList" instance=ExtResource("2_0wfyh")]
-layout_mode = 2
-
-[node name="MenuButton2" parent="ColorRect/EventList" instance=ExtResource("2_0wfyh")]
-visible = false
-layout_mode = 2
-
-[node name="MenuButton3" parent="ColorRect/EventList" instance=ExtResource("2_0wfyh")]
-visible = false
-layout_mode = 2
 
 [node name="NewEventButton" type="Button" parent="ColorRect"]
 layout_mode = 1

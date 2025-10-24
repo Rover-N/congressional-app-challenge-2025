@@ -2,6 +2,7 @@ extends Control
 
 var events = []
 var eventTitle
+var currentEvent
 
 const eventMenuButton = preload("res://scenes/menu_button.tscn")
 
@@ -27,7 +28,14 @@ func _on_save_changes_pressed() -> void:
 	
 	var event = eventMenuButton.instantiate()
 	
+	event.menu_opened.connect(close_all)
+	
 	#Start to update UI
 	event.get_node("Screen/EventMenuShow/Title").text = eventData["title"]
 	
 	$ColorRect/EventList.add_child(event)
+
+func close_all(buttonIndex):
+	for child in $ColorRect/EventList.get_children():
+		if child.get_index() != buttonIndex:
+			child.get_child(0).get_child(0).visible = false
