@@ -1,9 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://dkn2br1guakd7"]
+[gd_scene load_steps=4 format=3 uid="uid://dkn2br1guakd7"]
 
 [ext_resource type="Script" uid="uid://cucrpik5r1bd7" path="res://scripts/main.gd" id="1_o5qli"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_o5qli"]
-size = Vector2(50, 50)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o5qli"]
+bg_color = Color(0, 0, 0, 0.16078432)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0wfyh"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -21,7 +27,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.250124, 0.250124, 0.250124, 1)
+color = Color(0.18014383, 8.625031e-05, 0.6024823, 1)
 
 [node name="TextEdit" type="TextEdit" parent="ColorRect"]
 layout_mode = 1
@@ -29,10 +35,14 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -351.0
-offset_bottom = 511.0
+offset_top = 1.0
+offset_bottom = 512.0
 grow_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 50
-placeholder_text = "Notes"
+theme_override_styles/normal = SubResource("StyleBoxFlat_o5qli")
+placeholder_text = "Notes (Type Here!)"
+wrap_mode = 1
 
 [node name="Line2D" type="Line2D" parent="ColorRect"]
 position = Vector2(0, -58.297)
@@ -40,16 +50,17 @@ scale = Vector2(1, 1.15842)
 points = PackedVector2Array(51, 75, 51, 277.542, 51, 560)
 
 [node name="EventList" type="VBoxContainer" parent="ColorRect"]
+clip_contents = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.057
 anchor_top = 0.05
 anchor_right = 0.16
 anchor_bottom = 0.9
-offset_left = 0.335999
-offset_top = -0.400002
+offset_left = 0.33599854
+offset_top = -0.40000153
 offset_right = 432.68
-offset_bottom = -0.200012
+offset_bottom = -0.2000122
 grow_vertical = 2
 
 [node name="NewEventButton" type="Button" parent="ColorRect"]
@@ -64,8 +75,8 @@ offset_top = -124.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0wfyh")
 text = "Add Event"
-icon = SubResource("PlaceholderTexture2D_o5qli")
 
 [node name="NewEventMenu" type="ColorRect" parent="ColorRect/NewEventButton"]
 visible = false
@@ -90,13 +101,37 @@ theme_override_font_sizes/font_size = 50
 placeholder_text = "Title"
 wrap_mode = 1
 
+[node name="NewEventTitle2" type="TextEdit" parent="ColorRect/NewEventButton/NewEventMenu"]
+layout_mode = 0
+offset_top = 125.0
+offset_right = 500.0
+offset_bottom = 249.0
+theme_override_font_sizes/font_size = 50
+placeholder_text = "Desc"
+wrap_mode = 1
+
 [node name="SaveChanges" type="Button" parent="ColorRect/NewEventButton/NewEventMenu"]
 layout_mode = 0
-offset_left = 197.0
-offset_top = 390.0
-offset_right = 303.0
-offset_bottom = 447.0
+offset_left = 512.0
+offset_top = 257.99997
+offset_right = 699.8245
+offset_bottom = 359.0
 text = "SAVE"
+
+[node name="ColorList" type="ItemList" parent="ColorRect/NewEventButton/NewEventMenu"]
+layout_mode = 0
+offset_left = 501.0
+offset_top = 0.9999695
+offset_right = 714.0
+offset_bottom = 247.99997
+allow_search = false
+item_count = 6
+item_0/text = "Blue"
+item_1/text = "Green"
+item_2/text = "Yellow"
+item_3/text = "Orange"
+item_4/text = "Red"
+item_5/text = "Purple"
 
 [connection signal="pressed" from="ColorRect/NewEventButton" to="." method="_on_new_event_button_pressed"]
 [connection signal="pressed" from="ColorRect/NewEventButton/NewEventMenu/SaveChanges" to="." method="_on_save_changes_pressed"]

@@ -1,7 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://cwuv53qtyh2x5"]
+[gd_scene load_steps=21 format=3 uid="uid://cwuv53qtyh2x5"]
 
-[ext_resource type="Shader" uid="uid://k3ihvv44dyyb" path="res://scenes/Circle.gdshader" id="1_sd4kj"]
+[ext_resource type="Shader" uid="uid://k3ihvv44dyyb" path="res://scripts/Circle.gdshader" id="1_sd4kj"]
 [ext_resource type="Script" uid="uid://bl5tdrdd2vhx2" path="res://scripts/menu_button.gd" id="1_xsssc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sd4kj"]
+bg_color = Color(0, 0, 0, 0.5176471)
+expand_margin_bottom = 6.0
 
 [sub_resource type="Gradient" id="Gradient_hunp8"]
 colors = PackedColorArray(0, 0, 0.84313726, 0, 0.03137255, 0, 0.22745098, 0)
@@ -14,6 +18,10 @@ fill_to = Vector2(1, 1)
 font_size = 71
 font_color = Color(0, 0, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_sd4kj"]
+font_size = 40
+font_color = Color(0, 0, 0, 1)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sd4kj"]
 shader = ExtResource("1_sd4kj")
 shader_parameter/center = Vector2(0.5, 0.5)
@@ -21,15 +29,54 @@ shader_parameter/inner_radius = 0.3
 shader_parameter/outer_radius = 0.45
 shader_parameter/feather = 0.01
 
+[sub_resource type="Gradient" id="Gradient_sd4kj"]
+colors = PackedColorArray(0, 0, 1, 1, 1.5883148e-06, 0, 0.550048, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fpmxc"]
+gradient = SubResource("Gradient_sd4kj")
+fill_to = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_3wbiy"]
+colors = PackedColorArray(0, 1, 0, 1, 1.2032688e-08, 0.2132566, 1.4439226e-07, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_efe2e"]
+gradient = SubResource("Gradient_3wbiy")
+fill_to = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_omkt5"]
+colors = PackedColorArray(1, 1, 0, 1, 0.39195496, 0.391955, 9.62615e-08, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ho0u5"]
+gradient = SubResource("Gradient_omkt5")
+fill_to = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_jwut6"]
+colors = PackedColorArray(1, 0.5647059, 0, 1, 0.436693, 0.23381981, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kxy86"]
+gradient = SubResource("Gradient_jwut6")
+fill_to = Vector2(1, 1)
+
 [sub_resource type="Gradient" id="Gradient_fpmxc"]
-offsets = PackedFloat32Array(0, 0.62666667, 1)
-colors = PackedColorArray(0.0099482415, 0.23879671, 0.9999996, 1, 0.0017250581, 0.041391432, 0.5557287, 1, 8.4228816e-07, 0, 0.46257508, 1)
+colors = PackedColorArray(1, 0, 0, 1, 0.3204496, 3.0683353e-07, 1.2032687e-07, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_hunp8"]
 gradient = SubResource("Gradient_fpmxc")
 fill_to = Vector2(1, 1)
 
+[sub_resource type="Gradient" id="Gradient_kng5l"]
+colors = PackedColorArray(0.6745098, 0, 1, 1, 0.35104153, 0.0009825893, 0.5320654, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6o07e"]
+gradient = SubResource("Gradient_kng5l")
+fill_to = Vector2(1, 1)
+
 [node name="MenuButton" type="Button"]
+theme_override_styles/normal = SubResource("StyleBoxFlat_sd4kj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_sd4kj")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sd4kj")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_sd4kj")
+theme_override_styles/focus = SubResource("StyleBoxFlat_sd4kj")
 icon = SubResource("GradientTexture2D_3wbiy")
 script = ExtResource("1_xsssc")
 
@@ -37,7 +84,7 @@ script = ExtResource("1_xsssc")
 
 [node name="EventMenuShow" type="ColorRect" parent="Screen"]
 visible = false
-offset_left = 306.0
+offset_left = 193.0
 offset_top = 37.0
 offset_right = 824.0
 offset_bottom = 555.0
@@ -49,9 +96,58 @@ offset_bottom = 23.0
 text = "Name"
 label_settings = SubResource("LabelSettings_fpmxc")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Desc" type="Label" parent="Screen/EventMenuShow"]
+layout_mode = 0
+offset_top = 105.0
+offset_right = 222.0
+offset_bottom = 202.0
+text = "Description"
+label_settings = SubResource("LabelSettings_sd4kj")
+
+[node name="Blue" type="TextureRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_sd4kj")
+layout_mode = 0
+offset_right = 71.0
+offset_bottom = 71.0
+texture = SubResource("GradientTexture2D_fpmxc")
+
+[node name="Green" type="TextureRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_sd4kj")
+layout_mode = 0
+offset_right = 71.0
+offset_bottom = 71.0
+texture = SubResource("GradientTexture2D_efe2e")
+
+[node name="Yellow" type="TextureRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_sd4kj")
+layout_mode = 0
+offset_right = 71.0
+offset_bottom = 71.0
+texture = SubResource("GradientTexture2D_ho0u5")
+
+[node name="Orange" type="TextureRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_sd4kj")
+layout_mode = 0
+offset_right = 71.0
+offset_bottom = 71.0
+texture = SubResource("GradientTexture2D_kxy86")
+
+[node name="Red" type="TextureRect" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_sd4kj")
 layout_mode = 0
 offset_right = 71.0
 offset_bottom = 71.0
 texture = SubResource("GradientTexture2D_hunp8")
+
+[node name="Purple" type="TextureRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_sd4kj")
+layout_mode = 0
+offset_right = 71.0
+offset_bottom = 71.0
+texture = SubResource("GradientTexture2D_6o07e")
